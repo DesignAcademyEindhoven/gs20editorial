@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap");
+
+html {
+    --highlite-color: #FFE863;
+    --main-color: #271349;
+}
+body {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    background: var(--highlite-color);
+    color: var(--main-color);
+}
+
+header {
+    font-style: italic;
+    background: var(--main-color);
+    font-size: 1rem;
+    color: var(--highlite-color);
+    padding: 0.5rem;
+}
+header div {
+    padding: 0;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--highlite-color);
+}
+span {
+    display: inline-block;
+    padding-right: 1rem;
+    font-size: 1rem;
+}
+section {
+    padding: 1rem;
+    min-height: 15vh;
+    border-bottom: 1px solid var(--main-color);
+    text-transform: capitalize;
+}
+
+.randomSentences span {
+    display: block;
+}
+
+#grammarMenu,
+#grammarOutput {
+    display: block;
+}
+
+#grammarMenu,
+.randomSentences,
+.searchWord {
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+*::before {
+    font-size: 1rem;
+}
+
+#grammarMenu span {
+    font-size: 1.5rem;
+}
+
+#grammarMenu span:hover,
+div[attr] {
+    font-weight: bolder;
+}
+p {
+    display: inline;
+    font-weight: 400;
+    padding: 0;
+    padding-bottom: 0.5rem;
+    margin: 0;
+}
+
+.randomSentences {
+    color: var(--main-color);
+    user-select: unset;
+    cursor: unset;
+}
+.randomSentences span {
+    font-size: 1.5rem;
+}
+.randomSentences::before,
+#grammarMenu::before,
+.searchWord::before,
+.reoccuringWords::before {             
+
+    content: "GENERATE RANDOM SENTENCES ( ADJ + PRONP + VERB + DET + NOUN )";
+    display: block;
+    padding: 0.125rem;
+    margin-bottom: 1rem;
+    background: var(--main-color);
+    color: var(--highlite-color);
+    width: auto;
+}
+
+.reoccuringWords::before {
+    content: "MOST REOCURRING WORDS SORTED BY CATEGORY";
+}
+
+#grammarMenu::before {
+    content: "GENERATE RANDOM WORDS";
+}
+
+.searchWord::before {
+    content: "SEARCH A SPECIFIC WORD";
+}
+
+.searchWord {
+    user-select: unset;
+    cursor: unset;
+}
+
+#searchOutput span {
+    display: block;
+    width: 100vw;
+    padding-top: 1rem;
+}
+
+.sentences {
+    padding-top: 1rem;
+    counter-reset: section;
+    column-count: 3;
+}
+
+.sentences div::before {
+    counter-increment: section;
+    content: counter(section) " ";
+    opacity: 0.6;
+}
+
+.reoccuringWords > div {
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    font-size: 1rem;
+}
+small {
+    font-style: italic;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    opacity: 0.6;
+    user-select: none;
+}
+
+.reoccuringWords > div > div > div:nth-of-type(1) {
+    padding-top: 1rem;
+}
+
+.reoccuringWords > div > div > div {
+    padding-bottom: 0.25rem;
+}
+
+.reoccuringWords > div > div {
+    padding-right: 2rem;
+    margin-right: 2rem;
+    border-right: 1px solid var(--main-color);
+}
+
+::selection {
+    background: red;
+    color: var(--main-color);
+}
+
+@media (max-width: 1290px) {
+    .sentences {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 640px) {
+    .sentences {
+        column-count: 1;
+    }
+}

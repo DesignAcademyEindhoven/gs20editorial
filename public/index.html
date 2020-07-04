@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+    made with italian love by giacomonanni.info                                                                 
+                                                                     
+ (  (  (      )              )                   )               (   
+ )\))( )\  ( /(   (   (     (      (    (     ( /(   (      (    )\  
+((_))\((_) )(_))  )\  )\    )\  '  )\   )\ )  )(_))  )\ )   )\ )((_) 
+ (()(_)(_)((_)_  ((_)((_) _((_))  ((_) _(_/( ((_)_  _(_/(  _(_/( (_) 
+/ _` | | |/ _` |/ _|/ _ \| '  \()/ _ \| ' \))/ _` || ' \))| ' \))| | 
+\__, | |_|\__,_|\__|\___/|_|_|_| \___/|_||_| \__,_||_||_| |_||_| |_| 
+|___/                                                                                                                                                 
+ -->
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="author" content="Giacomo Nanni">
+    <title>Generate texts from abstracts</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <header>
+        <span>A set of tools to analyse words from Design Academy Eindhoven's theses</span>
+        <div class="radio">
+            <input type="radio" id="bachelor" name="category" value="bachelor" checked="checked">
+            <label for="bachelor">Bachelor</label>
+            <input type="radio" id="master" name="category" value="master">
+            <label for="master">Master</label>
+        </div>
+    </header>
+    <section class="randomSentences">
+        <button id="generateSentences"> Create more sentences</button>
+        <div class="sentences"></div>
+    </section>
+
+    <section class="reoccuringWords">
+        <div></div>
+    </section>
+    <section class="searchWord">
+        <input type="search" id="search" autocomplete="off">
+        <button id="searchWord"> Search word</button>
+        <div id="searchOutput"></div>
+    </section>
+    <section class="writeSentences">
+        <div id="grammarMenu"></div>
+        <div id="grammarOutput"></div>
+    </section>
+
+</body>
+
+</html>
