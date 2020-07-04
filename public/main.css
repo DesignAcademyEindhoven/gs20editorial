@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap");
 
 html {
-    --highlite-color: #FFE863;
+    --highlite-color: #ffe863;
     --main-color: #271349;
 }
 body {
@@ -46,6 +46,9 @@ section {
 #grammarOutput {
     display: block;
 }
+#grammarOutput {
+    min-height: 300px;
+}
 
 #grammarMenu,
 .randomSentences,
@@ -86,8 +89,7 @@ p {
 .randomSentences::before,
 #grammarMenu::before,
 .searchWord::before,
-.reoccuringWords::before {             
-
+.reoccuringWords::before {
     content: "GENERATE RANDOM SENTENCES ( ADJ + PRONP + VERB + DET + NOUN )";
     display: block;
     padding: 0.125rem;
