@@ -86,7 +86,7 @@ function capitalize(s) {
         for (let i = 0; i < 30; i++) {
             globalThis.d3.select('.sentences')
                 .append('div')
-                .text(getRandom(dictionary['ADJ']) + ' ' + getRandom(dictionary['PROPN']) + ' ' + getRandom(dictionary['VERB']) + ' ' + getRandom(dictionary['DET']) + ' ' + getRandom(dictionary['NOUN']));
+                .text(getRandom(dictionary['ADV']) + ' ' + getRandom(dictionary['PROPN']) + ' ' + getRandom(dictionary['VERB']) + ' ' + getRandom(dictionary['NOUN']));
         }
 
 
@@ -143,13 +143,13 @@ function capitalize(s) {
             globalThis.d3.select('.sentences')
                 .append('div')
                 .lower()
-                .text(getRandom(dictionary['ADJ']) + ' ' + getRandom(dictionary['PROPN']) + ' ' + getRandom(dictionary['VERB']) + ' ' + getRandom(dictionary['DET']) + ' ' + getRandom(dictionary['NOUN']));
+                .text(getRandom(dictionary['ADV']) + ' ' + getRandom(dictionary['PROPN']) + ' ' + getRandom(dictionary['VERB']) + ' ' + getRandom(dictionary['NOUN']));
         });
 
         // write random words
         globalThis.d3.selectAll('#grammarMenu > span').on("click", function () {
             if (document.getElementById('grammarOutput').children.length > 0) {
-                for (let i = 0; i < 10; i++) {
+                for (let i = 0; i < 50; i++) {
                     globalThis.d3.select('#grammarOutputLine' + i)
                         .append('div')
                         .style('display', 'inline')
@@ -157,7 +157,7 @@ function capitalize(s) {
                 }
 
             } else {
-                for (let i = 0; i < 10; i++) {
+                for (let i = 0; i < 50; i++) {
                     globalThis.d3.select('#grammarOutput')
                         .append('div')
                         .attr('id', 'grammarOutputLine' + i)

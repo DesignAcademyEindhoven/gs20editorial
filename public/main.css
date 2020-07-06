@@ -90,7 +90,7 @@ p {
 #grammarMenu::before,
 .searchWord::before,
 .reoccuringWords::before {
-    content: "GENERATE RANDOM SENTENCES ( ADJ + PRONP + VERB + DET + NOUN )";
+    content: "GENERATE RANDOM SENTENCES ( ADV + PRONP + VERB + NOUN )";
     display: block;
     padding: 0.125rem;
     margin-bottom: 1rem;
