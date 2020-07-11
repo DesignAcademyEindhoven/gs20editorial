@@ -18,7 +18,7 @@ function capitalize(s) {
 }
 
 (async () => {
-    let dictionary = await loadData('bachelor');;
+    let dictionary = await loadData('bachelor + master');;
     parseDict();
     clickable();
     // randomColor();
@@ -104,21 +104,18 @@ function capitalize(s) {
     button.addEventListener('click', function () {
         let inputText = document.getElementById("search").value.toLowerCase();
         // parses dictionary to find a matching key
-        console.log(inputText)
         for (let i in dictionary) {
             for (let j in dictionary[i]) {
                 if (dictionary[i][inputText]) {
                     let uniqueName = [...new Set(dictionary[i][inputText])];
                     let catGram = i;
                     if (dictionary[i][inputText].length == 1) {
-                        console.log(dictionary[i][inputText], catGram, uniqueName)
                         globalThis.d3.select('#searchOutput')
                             .append('span')
                             .text(inputText + '(' + catGram + ') is mentioned only once by: ' + uniqueName);
                         break
                     }
                     if (dictionary[i][inputText].length > 1) {
-                        console.log(dictionary[i][inputText], catGram, uniqueName)
                         globalThis.d3.select('#searchOutput')
                             .append('span')
                             .text(inputText + '(' + catGram + ') is mentioned ' + dictionary[i][inputText].length + ' times by: ' + uniqueName);
