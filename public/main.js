@@ -86,7 +86,7 @@ function capitalize(s) {
         for (let i = 0; i < 30; i++) {
             globalThis.d3.select('.sentences')
                 .append('div')
-                .text(getRandom(dictionary['NOUN']) + ' ' + getRandom(dictionary['VERB']) + ' ' + getRandom(dictionary['ADP']) + ' ' + getRandom(dictionary['ADJ'])+ ' ' + getRandom(dictionary['NOUN']));
+                .text(getRandom(dictionary['ADJ']) + ' ' + getRandom(dictionary['NOUN']) + ' ' + getRandom(dictionary['VERB']) + ' ' + getRandom(dictionary['NOUN']));
         }
 
 
@@ -140,7 +140,7 @@ function capitalize(s) {
             globalThis.d3.select('.sentences')
                 .append('div')
                 .lower()
-                .text(getRandom(dictionary['NOUN']) + ' ' + getRandom(dictionary['VERB']) + ' ' + getRandom(dictionary['ADP']) + ' ' + getRandom(dictionary['ADJ'])+ ' ' + getRandom(dictionary['NOUN']));
+                .text(getRandom(dictionary['ADJ']) + ' ' + getRandom(dictionary['NOUN']) + ' ' + getRandom(dictionary['VERB']) + ' ' + getRandom(dictionary['NOUN']));
         });
 
         // write random words
