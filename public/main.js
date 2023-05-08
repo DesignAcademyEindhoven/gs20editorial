@@ -8,20 +8,24 @@ function getRandom(obj) {
 };
 
 function randomColor() {
-    var colors = ["#ffe862", "#77b740", "#5c93aa", "#c6ffcd"];
-    var rand = Math.floor(Math.random() * colors.length);
-    document.documentElement.style.setProperty('--highlite-color', colors[rand]);
+    let mainColor = ["#F115AF", "#F33C1A", "#002AFC", "#8b0000", "#D1D1D1", "#D1D1D1"];
+    let complementaryColor = ["#8b0000", "#D1D1D1", "#000000", "#F115AF", "#F33C1A", "#002AFC"];
+    let rand = Math.floor(Math.random() * mainColor.length);
+    console.log(rand)
+    document.documentElement.style.setProperty('--highlite-color', mainColor[rand]);
+    document.documentElement.style.setProperty('--main-color', complementaryColor[rand]);
 };
+
 
 function capitalize(s) {
     return s[0].toUpperCase() + s.slice(1);
 }
 
 (async () => {
+    randomColor();
     let dictionary = await loadData('bachelor + master');;
     parseDict();
     clickable();
-    // randomColor();
 
     // change dictionary on click
     globalThis.d3.selectAll('.radio > input').on("click", async function () {
@@ -36,13 +40,12 @@ function capitalize(s) {
         dictionary = await loadData(inputValue);
         parseDict();
         clickable();
-        // randomColor();
+        randomColor();
 
     });
 
 
     function parseDict() {
-        console.log(dictionary)
 
         for (let i in dictionary) {
             // It appends categories to menu
@@ -74,7 +77,7 @@ function capitalize(s) {
             });
 
             //  It appends to div the first n reoccuring words
-            keys.slice(0, 30).forEach((key) => {
+            keys.slice(0, 50).forEach((key) => {
                 globalThis.d3.select('.reoccuringWords div[attr=' + i + ']')
                     .append('div')
                     .html('<small> ' + dict[key].length + '</small>' + '<p>' + capitalize(key) + '</p>')
@@ -83,7 +86,10 @@ function capitalize(s) {
 
         }
 
+        let sentences = []
+
         for (let i = 0; i < 30; i++) {
+            sentences.push(getRandom(dictionary['ADJ']) + ' ' + getRandom(dictionary['NOUN']) + ' ' + getRandom(dictionary['VERB']) + ' ' + getRandom(dictionary['NOUN']))
             globalThis.d3.select('.sentences')
                 .append('div')
                 .text(getRandom(dictionary['ADJ']) + ' ' + getRandom(dictionary['NOUN']) + ' ' + getRandom(dictionary['VERB']) + ' ' + getRandom(dictionary['NOUN']));
@@ -96,8 +102,41 @@ function capitalize(s) {
                 .append('div')
                 .text(getRandom(dictionary[this.innerText]) + ' ');
         });
-    }
 
+
+        var phrase = document.getElementById("description");
+        var t = setInterval(step, 100);
+        var passaggi;
+        let mode;
+        var current = -1;
+        swap();
+
+        function step() {
+            if (mode == 0) {
+                var end = sentences[current].length;
+                var start = end - passaggi - 1;
+                phrase.innerHTML = sentences[current].slice(start, end);
+                passaggi++;
+                if (passaggi == sentences[current].length) {
+                    mode++;
+                    passaggi = 0;
+                }
+            } else if (mode == 1) {
+                passaggi++;
+                if (passaggi == 80) swap();
+            }
+        }
+
+        function swap() {
+            do {
+                var r = Math.floor(Math.random() * sentences.length);
+            } while (r == current);
+            current = r;
+            passaggi = 0;
+            mode = 0;
+            phrase.innerHTML = "";
+        }
+    }
 
     const button = document.querySelector('#searchWord');
 
@@ -112,13 +151,13 @@ function capitalize(s) {
                     if (dictionary[i][inputText].length == 1) {
                         globalThis.d3.select('#searchOutput')
                             .append('span')
-                            .text(inputText + '(' + catGram + ') is mentioned only once by: ' + uniqueName);
+                            .text(inputText + '(' + catGram + ') is mentioned only once by: ' + uniqueName + ' ');
                         break
                     }
                     if (dictionary[i][inputText].length > 1) {
                         globalThis.d3.select('#searchOutput')
                             .append('span')
-                            .text(inputText + '(' + catGram + ') is mentioned ' + dictionary[i][inputText].length + ' times by: ' + uniqueName);
+                            .text(inputText + '(' + catGram + ') is mentioned ' + dictionary[i][inputText].length + ' times by: ' + uniqueName.join(', '));
                         break
                     }
                 }

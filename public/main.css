@@ -1,20 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap");
+@font-face {
+    font-family: Intel;
+    src: url("Inter-Regular.woff2") format("woff2"), url("Inter-Regular.woff") format("woff");
+    font-weight: normal;
+}
+
 
 html {
-    --highlite-color: #beb66b;
-    --main-color: #271349;
+    --highlite-color: white;
+    --main-color: black;
 }
 body {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Intel", monospace;
     font-size: 20px;
     padding: 0;
     margin: 0;
     background: var(--highlite-color);
     color: var(--main-color);
+    width: 100%;
+    overflow-x: hidden;
 }
 
 header {
-    font-style: italic;
     background: var(--main-color);
     font-size: 1rem;
     color: var(--highlite-color);
@@ -38,6 +44,19 @@ section {
     text-transform: capitalize;
 }
 
+.intro-text{
+    font-size: 1rem;
+    font-style: normal;
+}
+
+#description{
+    font-size: 2rem;
+}
+.intro-text p{
+    max-width: 950px;
+    display: block;
+
+}
 .randomSentences span {
     display: block;
 }
@@ -90,7 +109,7 @@ p {
 #grammarMenu::before,
 .searchWord::before,
 .reoccuringWords::before {
-    content: "GENERATE RANDOM SENTENCES ( ADJ + NOUN + VERB + NOUN )";
+    content: "GENERATE RANDOM HEADLINES ( ADJ + NOUN + VERB + NOUN )";
     display: block;
     padding: 0.125rem;
     margin-bottom: 1rem;
@@ -164,8 +183,8 @@ small {
 }
 
 ::selection {
-    background: red;
-    color: var(--main-color);
+    background: black;
+    color: var(--highlite-color);
 }
 
 @media (max-width: 1290px) {
@@ -178,4 +197,9 @@ small {
     .sentences {
         column-count: 1;
     }
+}
+
+.logo {
+    width: 250px;
+    fill: var(--main-color);
 }

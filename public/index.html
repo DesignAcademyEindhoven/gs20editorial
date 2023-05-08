@@ -17,6 +17,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name="author" content="Giacomo Nanni">
     <title>Generate texts from abstracts</title>
+    <!-- <meta http-equiv="refresh" content="0; URL='https://giacomonanni.info/dae/public/'" /> -->
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -25,28 +26,43 @@
 
 <body>
     <header>
-        <span>A set of tools to analyse words from Design Academy Eindhoven's theses</span>
-        <div class="radio">
+        <div class="intro-text" style="min-height: 40px; border-top: none;" id="description"></div>
+
+        <!-- <div class="radio">
             <input type="radio" id="bachelor + master" name="category" value="bachelor + master" checked="checked">
             <label for="bachelor + master">All Students</label>
             <input type="radio" id="bachelor" name="category" value="bachelor" disabled>
             <label for="bachelor">Bachelor</label>
             <input type="radio" id="master" name="category" value="master" disabled>
             <label for="master">Master</label>
+        </div>  -->
+
+        <div class="intro-text">
+            <p>
+                This open-source tool is part of the <a href="https://www.designacademy.nl/gs20"
+                    style="text-decoration: underline; color: unset;" target="_blank">Design Academy Eindhoven</a> ’s
+                2020 Graduation Show. An algorithm has
+                been fed with written descriptions of over 180 graduation projects, and can be used to generate a series
+                of hypothetical news headlines based on the work – we invite you to play with the order of the words
+                below to generate your own unexpected sentences. The tool can also be used to filter projects by keyword
+                using the search function, revealing new connections and hidden trends that can be found across the
+                collective body of work.
+            </p>
         </div>
+
     </header>
     <section class="randomSentences">
         <button id="generateSentences"> Create more sentences</button>
         <div class="sentences"></div>
     </section>
 
-    <section class="reoccuringWords">
-        <div></div>
-    </section>
     <section class="searchWord">
         <input type="search" id="search" autocomplete="off">
         <button id="searchWord"> Search word</button>
         <div id="searchOutput"></div>
+    </section>
+    <section class="reoccuringWords">
+        <div></div>
     </section>
     <section class="writeSentences">
         <div id="grammarMenu"></div>
@@ -54,6 +70,92 @@
         <div id="grammarOutput"></div>
     </section>
 
+    <section class="intro-text">
+
+        This website is part of the <a href="https://www.designacademy.nl/gs20"
+            style="text-decoration: underline; color: unset;" target="_blank">Design Academy Eindhoven</a> Graduation
+        Show 2020 <br> <br>
+
+        Data Science and Coding:
+        <a style="text-decoration: underline; color: unset;" href="https://giacomonanni.info" target="_blank">Giacomo
+            Nanni </a>
+        <br>
+        Webdesign
+        <a style="text-decoration: underline; color: unset;" href="http://domitilledebret.fr/" target="_blank">Domitille
+            Debret </a>,
+        <a style="text-decoration: underline; color: unset;" href="https://giacomonanni.info" target="_blank">Giacomo
+            Nanni </a>
+        <br>
+        Concept and Graphic Design:
+        <a style="text-decoration: underline; color: unset;" href="http://domitilledebret.fr/" target="_blank">Domitille
+            Debret </a>,
+        Ward Goes,
+        Simone Niquille
+        <br>
+        Editorial Team:
+        Colin Keays,
+        Anastasia Kubrak
+        <br><br>
+        <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226.44 50.08">
+            <defs>
+                <style>
+                    .cls-1 {
+                        fill: none;
+                    }
+                </style>
+            </defs>
+            <g id="Layer_1" data-name="Layer 1">
+                <path
+                    d="M4.84,21.21V4.86h5.5l2.33.79,1.57,1.56L15,8.75l.77,2.34V15L15,17.29l-.79,1.59L12.7,20.42l-2.36.79Zm1.72-1.72h3.76l2.24-.75.77-1.54L14.08,15V11.11L13.31,8.8l-.75-1.48-2.24-.74H6.56Z" />
+                <path
+                    d="M24.09,21.21v-.09L30.27,4.86h1.67l6.19,16.26v.09H36.46L35,17.36H27.24l-1.48,3.85Zm3.81-5.57h6.42L31.11,7.21Z" />
+                <path d="M4.84,45.21V28.86h9.42v1.72H6.56v5.21H12v1.72H6.56v6h7.7v1.72Z" />
+                <path
+                    d="M57.37,21.21V4.86h5.5l2.33.8,1.56,1.56.8,1.54.77,2.33V15l-.77,2.31-.8,1.58-1.54,1.54-2.35.79Zm1.71-1.71h3.77l2.24-.75.77-1.54L66.61,15V11.11L65.84,8.8l-.75-1.47-2.24-.75H59.08Z" />
+                <path
+                    d="M74.37,21.21l-1.56-.79-1.56-1.56-.79-2.33V14.17l.79-2.33,1.56-1.56,1.56-.8h2.36l1.56.8.79.79.8,1.56v3.19H72.17v.66l.75,2.27,1.5.75h2.27l1-.49L78.18,18H79.9V18l-.79,1.59-.82.81-1.56.77Zm-2.17-7.1h6V12.68l-.51-1-1-.49H74.42l-1.5.75Z" />
+                <path
+                    d="M85.15,21.21l-2.35-.79L82,18.84V18h1.71v.79l1.46.75h1.56l1.43-.73v-.68l-.73-1.5-3.06-1.54L82.8,13.47,82,11.88l.81-1.6,2.35-.8h1.59l2.35.8.79,1.58v.88H88.17V12l-1.45-.75H85.18l-1.43.73.72,1.43,3.06,1.54,1.56,1.56L89.88,18v.82l-.79,1.58-2.35.79Z" />
+                <path d="M92.79,7.35V4.86H94.5V7.35Zm0,13.86V9.48H94.5V21.21Z" />
+                <path
+                    d="M101.32,25.06l-1.56-.79L99,23.48l-.79-1.59v-.08h1.69l.53,1.05,1,.49h3l.88-.44.6-1.79V18.24l-1.41,1.41-1.56.79h-1.59l-1.56-.79L98.2,18.09l-.79-2.33V14.17l.79-2.33,1.56-1.56,1.56-.8h1.59l1.56.8,1.41,1.41V9.48h1.72V21.15l-.77,2.33-.82.81-1.56.77Zm.05-6.33h1.52l3-.75V12l-3-.75h-1.52L99.85,12l-.73,2.25v1.49L99.87,18Z" />
+                <path
+                    d="M111.27,21.21V9.48H113v2.91l1.41-2.11,1.56-.8h2.36l1.58.8.8,2.35v8.58H119V12.68l-.46-1-1-.51H116l-3,1.52v8.49Z" />
+                <path
+                    d="M129.75,21.21v-.09l6.18-16.26h1.67l6.19,16.26v.09h-1.68l-1.47-3.85h-7.75l-1.47,3.85Zm3.8-5.56H140l-3.21-8.43Z" />
+                <path
+                    d="M148.29,21.21l-1.56-.79-1.56-1.56-.79-2.33V14.17l.79-2.33,1.56-1.56,1.56-.8h2.36l1.56.8.79.79.79,1.58v.09H152.1l-.53-1.05-1-.49h-2.26l-1.5.75-.75,2.27v2.26l.75,2.27,1.5.75h2.26l1-.49L152.1,18h1.72V18l-.8,1.59-.81.81-1.56.77Z" />
+                <path
+                    d="M159.84,21.21l-1.56-.79-1.56-1.56-.79-2.33V14.17l.79-2.33,1.56-1.56,1.56-.8h1.59l1.56.8,1.41,1.41V9.48h1.71V21.21H164.4V19L163,20.42l-1.56.79Zm0-1.71h1.52l3-.75V12l-3-.75h-1.52l-1.52.77-.73,2.25v2.26l.75,2.27Z" />
+                <path
+                    d="M172.93,21.21l-1.56-.79-1.56-1.56L169,16.53V14.17l.79-2.33,1.56-1.56,1.56-.8h1.59l1.56.8,1.41,1.41V4.86h1.71V21.21h-1.71V19l-1.41,1.41-1.56.79Zm0-1.71h1.52l3-.75V12l-3-.75H173l-1.5.75-.75,2.27v2.26l.73,2.25Z" />
+                <path
+                    d="M186,21.21l-1.56-.79-1.56-1.56-.79-2.33V14.17l.79-2.33,1.56-1.56,1.56-.8h2.36l1.56.8.79.79.79,1.56v3.19h-7.7v.66l.75,2.27,1.5.75h2.26l1-.49.53-1.05h1.72V18l-.8,1.59-.81.81-1.56.77Zm-2.17-7.1h6V12.68l-.51-1-1-.49h-2.26l-1.5.75Z" />
+                <path
+                    d="M194.43,21.21V9.48h1.71v2.91l1.41-2.11,1.56-.8h1.59l1.58.8.73,2.2,1.47-2.2,1.56-.8h1.59l1.58.8.79,2.35v8.58h-1.71V12.68l-.46-1-1-.51h-.72l-3,1.52v8.49h-1.71V12.68l-.46-1-1-.51h-.72l-3,1.52v8.49Z" />
+                <path d="M213.68,25.06V25l1.87-5L211.37,9.57V9.48h1.69l3.41,8.19,3.39-8.19h1.69v.09l-6.18,15.49Z" />
+                <path d="M57.37,45.21V28.86h9.42v1.72H59.08v5.21h5.4v1.72h-5.4v6h7.71v1.71Z" />
+                <path d="M69.69,31.35V28.86H71.4v2.49Zm0,13.86V33.48H71.4V45.21Z" />
+                <path
+                    d="M75.08,45.21V33.48h1.71v2.91l1.41-2.11,1.56-.8h2.36l1.58.8.8,2.35v8.58H82.78V36.68l-.46-1-1-.51h-1.5l-3,1.52v8.49Z" />
+                <path
+                    d="M91.31,45.21l-1.56-.79-1.56-1.56-.79-2.33V38.17l.79-2.33,1.56-1.56,1.56-.8H92.9l1.56.8,1.41,1.41V28.86h1.72V45.21H95.87V43l-1.41,1.41-1.56.79Zm0-1.71h1.52l3-.75V36l-3-.75H91.36l-1.5.75-.75,2.27v2.26l.73,2.25Z" />
+                <path
+                    d="M101.26,45.21V28.86H103v7.53l1.41-2.11,1.56-.8h2.36l1.58.8.8,2.35v8.58H109V36.68l-.46-1-1-.51H106l-3,1.52v8.49Z" />
+                <path
+                    d="M117.49,45.21l-1.56-.79-1.56-1.56-.79-2.33V38.17l.79-2.33,1.56-1.56,1.56-.8h2.36l1.56.8L123,35.84l.8,2.33v2.36l-.8,2.33-1.56,1.56-1.56.79Zm.05-1.71h2.26l1.48-.73.77-2.27V38.19l-.77-2.26-1.48-.73h-2.26l-1.48.73-.77,2.26V40.5l.77,2.27Z" />
+                <path d="M128.23,45.21l-3.87-11.64v-.09h1.69l3,9.07,3-9.07h1.7v.09L129.9,45.21Z" />
+                <path
+                    d="M138.28,45.21l-1.56-.79-1.56-1.56-.79-2.33V38.17l.79-2.33,1.56-1.56,1.56-.8h2.36l1.56.8.79.79.8,1.56v3.19h-7.71v.66l.75,2.27,1.5.75h2.26l1-.49.53-1h1.72V42l-.8,1.59-.81.81-1.56.77Zm-2.17-7.1h6V36.68l-.51-1-1-.49h-2.26l-1.5.75Z" />
+                <path
+                    d="M146.69,45.21V33.48h1.71v2.91l1.41-2.11,1.56-.8h2.36l1.58.8.79,2.35v8.58h-1.71V36.68l-.46-1-1-.51h-1.49l-3,1.52v8.49Z" />
+            </g>
+            <g id="clearspace">
+                <polygon class="cls-1"
+                    points="226.44 0 52.52 0 52.52 0.01 0 0.01 0 50.08 57.05 50.08 57.05 50.07 226.44 50.07 226.44 0" />
+            </g>
+        </svg>
+    </section>
 </body>
 
 </html>
